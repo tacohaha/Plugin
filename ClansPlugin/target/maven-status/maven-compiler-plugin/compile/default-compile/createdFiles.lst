@@ -1,3 +1,5 @@
 me\harambe_hotsauce\clans\ClanCommand.class
 me\harambe_hotsauce\clans\ClanPlugin.class
+me\harambe_hotsauce\clans\JoinClan.class
+me\harambe_hotsauce\clans\PlayerPermission.class
 me\harambe_hotsauce\clans\CreateClan.class

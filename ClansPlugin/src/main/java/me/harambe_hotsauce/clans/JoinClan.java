@@ -1,26 +1,29 @@
 package me.harambe_hotsauce.clans;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CreateClan {
+public class JoinClan {
 
     File file = new File("plugins/Clans/" + "ClanList.yml");
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
     ArrayList playerList;
 
-    public CreateClan(String name, ArrayList playerList, Player player) {
-        this.playerList = playerList;
-        yamlConfiguration.set("clans." + getClanSize() + "." + name + ".members", playerList.toArray());
+    public JoinClan(String clan, Player player) {
+        playerList = (ArrayList<String>) yamlConfiguration.get(clan);
+        playerList.add(player.getName());
+        yamlConfiguration.set("clans." + getClanSize() + "." + clan + ".members", playerList.toArray());
         try {
             yamlConfiguration.save(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        yamlConfiguration.set("players." + player.getUniqueId() + "." + name, "player_permission." + PlayerPermission.LEADER.toString());
+        yamlConfiguration.set("players." + player.getUniqueId() + "." + clan, "player_permission." + PlayerPermission.MEMBER.toString());
         try {
             yamlConfiguration.save(file);
         } catch (IOException e) {
@@ -36,5 +39,4 @@ public class CreateClan {
             return 1;
         }
     }
-
 }
