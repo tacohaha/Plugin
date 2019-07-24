@@ -1,0 +1,12 @@
+name: ClanPlugin
+version: 1.0-SNAPSHOT
+main: me.harambe_hotsauce.clans.ClanPlugin
+api-version: 1.13
+authors: [Harambe_Hotsauce]
+description: Create and join clans with you friends!
+commands:
+  clans:
+    description: general commmand for clan plugin
+    usage: /clan [create] [delete] [join], [name]
+    permission: clan.basic
+    permission-message: You don't have <permission>
