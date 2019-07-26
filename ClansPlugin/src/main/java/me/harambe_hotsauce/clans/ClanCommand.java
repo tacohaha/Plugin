@@ -25,12 +25,17 @@ public class ClanCommand implements CommandExecutor {
         } else if (args[0].equalsIgnoreCase("delete")) {
 //            System.out.println(args[0]);
             return true;
-        } else if (args[0].equalsIgnoreCase("join")) {
-            new JoinClan(args[1], (Player) sender);
-//            System.out.println(args[0]);
+        } else if (args[0].equalsIgnoreCase("invite")) {
+            new InvitePlayer(args[1], (Player) sender);
             return true;
         } else if (args[0].equalsIgnoreCase("leave")) {
             new LeaveClan((Player) sender);
+            return true;
+        } else if (args[0].equalsIgnoreCase("accept")) {
+            new AcceptInvite((Player) sender);
+            return true;
+        } else if (args[0].equalsIgnoreCase("deny")) {
+            new DenyInvite((Player) sender);
             return true;
         }
         return false;

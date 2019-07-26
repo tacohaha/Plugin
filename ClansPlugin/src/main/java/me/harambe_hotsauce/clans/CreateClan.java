@@ -20,6 +20,7 @@ public class CreateClan {
             if (!isPlayerInClan(player, name)) {
                 playerList.add(player.getName());
                 yamlConfiguration.set("clans." + name + ".members", playerList.toArray());
+                yamlConfiguration.set("clans." + name + ".limit", 5);
                 playerList.clear();
                 yamlConfiguration.set("clans." + name + ".leader", player.getName());
                 yamlConfiguration.set("players." + player.getName() + ".UUID", player.getUniqueId().toString());
