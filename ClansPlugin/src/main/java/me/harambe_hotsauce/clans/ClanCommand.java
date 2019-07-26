@@ -37,6 +37,9 @@ public class ClanCommand implements CommandExecutor {
         } else if (args[0].equalsIgnoreCase("deny")) {
             new DenyInvite((Player) sender);
             return true;
+        } else if (args[0].equalsIgnoreCase("list")) {
+            new ClanList((Player) sender);
+            return true;
         }
         return false;
     }

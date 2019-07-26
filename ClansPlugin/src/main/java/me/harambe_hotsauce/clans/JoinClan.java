@@ -1,6 +1,7 @@
 package me.harambe_hotsauce.clans;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -29,13 +30,13 @@ public class JoinClan {
                 yamlConfiguration.set("players." + player.getName() + ".Player_Permissions", PlayerPermission.MEMBER.toString());
                 yamlConfiguration.set("players." + player.getName() + ".clan", clan);
                 save();
-                player.sendMessage("You have successfully joined: " + clan);
-                player.sendMessage("You are now a member in: " + clan);
+                player.sendMessage(ChatColor.GREEN + "You have successfully joined: " + ChatColor.BLUE + clan);
+                player.sendMessage(ChatColor.GREEN + "You are now a member in: " + ChatColor.BLUE + clan);
             } else {
-                player.sendMessage("You are already in a clan!");
+                player.sendMessage(ChatColor.RED + "You are already in a clan!");
             }
         } else {
-            player.sendMessage("Clan does not exist!");
+            player.sendMessage(ChatColor.RED + "Clan does not exist!");
         }
     }
 

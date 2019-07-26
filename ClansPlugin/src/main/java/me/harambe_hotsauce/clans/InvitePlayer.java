@@ -1,6 +1,7 @@
 package me.harambe_hotsauce.clans;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -18,6 +19,7 @@ public class InvitePlayer {
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
     ArrayList<String> playerList;
 
+
     public InvitePlayer(String invPlayer, Player player) {
         if (canPlayerInvitePlayers(player)) {
             if (player == Bukkit.getPlayer(invPlayer)) {
@@ -26,16 +28,16 @@ public class InvitePlayer {
                 onlinePlayers = Bukkit.getOnlinePlayers();
                 if (onlinePlayers.contains(Bukkit.getPlayer(invPlayer))) {
                     Player invitedPlayer = Bukkit.getPlayer(invPlayer);
-                    invitedPlayer.sendMessage("You have been invited to join the clan " + getClan(player));
-                    invitedPlayer.sendMessage("Type /clans accept to accept this invite or /clans deny to deny the invite.");
+                    invitedPlayer.sendMessage(ChatColor.GREEN + "You have been invited to join the clan " + ChatColor.BLUE + getClan(player));
+                    invitedPlayer.sendMessage(ChatColor.GREEN + "Type" + ChatColor.AQUA + " /clans accept " + ChatColor.GREEN + "to accept this invite or" + ChatColor.AQUA + " /clans deny "  + ChatColor.GREEN + "to deny the invite.");
                     invitedPlayer.sendMessage("This invite will time out in 60 seconds.");
                     createInvite(player, invitedPlayer, getClan(player), System.currentTimeMillis());
                 } else {
-                    player.sendMessage(invPlayer + " is not logged in!");
+                    player.sendMessage(ChatColor.RED + invPlayer + ChatColor.GREEN + " is not logged in!");
                 }
             }
         } else {
-            player.sendMessage("You do not have permission to invite players to your clan!");
+            player.sendMessage(ChatColor.RED + "You do not have permission to invite players to your clan!");
         }
     }
 

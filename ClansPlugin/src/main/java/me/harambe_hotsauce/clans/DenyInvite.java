@@ -1,5 +1,7 @@
 package me.harambe_hotsauce.clans;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -26,9 +28,15 @@ public class DenyInvite {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                player.sendMessage("You have denied to join the clan " + clan + "!");
+                player.sendMessage(ChatColor.RED + "You have denied to join the clan " + ChatColor.AQUA + clan + ChatColor.RED + "!");
+                Player newPlayer = Bukkit.getPlayer((String) yamlConfiguration.get("Invite." + player.getName() + ".Sender"));
+                try {
+                    newPlayer.sendMessage(ChatColor.AQUA + player.getName() + ChatColor.RED + "Has denied your invite request!");
+                } catch (NullPointerException e) {
+                    System.out.println("Player that sent an invite has logged out!");
+                }
             } else {
-                player.sendMessage("Your invite has timed out!");
+                player.sendMessage(ChatColor.RED + "Your invite has timed out!");
                 yamlConfiguration.set("Invite." + player.getName() + ".Timestamp", null);
                 yamlConfiguration.set("Invite." + player.getName() + ".Clan", null);
                 yamlConfiguration.set("Invite." + player.getName() + ".Sender", null);
@@ -40,7 +48,7 @@ public class DenyInvite {
                 }
             }
         } else {
-            player.sendMessage("You have not been invited to a clan!");
+            player.sendMessage(ChatColor.RED + "You have not been invited to a clan!");
         }
 
     }

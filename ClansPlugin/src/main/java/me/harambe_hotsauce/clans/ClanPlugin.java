@@ -8,7 +8,6 @@ public final class ClanPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        clanPlugin = this;
 
         new GenerateFile("Clans", "ClanList.yml");
 
@@ -19,8 +18,5 @@ public final class ClanPlugin extends JavaPlugin {
     public void onDisable() {
     }
 
-    public static JavaPlugin getInstance() {
-        return clanPlugin;
-    }
 }
 

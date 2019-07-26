@@ -1,5 +1,6 @@
 package me.harambe_hotsauce.clans;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -32,7 +33,7 @@ public class AcceptInvite {
                 }
                 new JoinClan(clan, player);
             } else {
-                player.sendMessage("Your invite has timed out!");
+                player.sendMessage(ChatColor.RED + "Your invite has timed out!");
                 yamlConfiguration.set("Invite." + player.getName() + ".Timestamp", null);
                 yamlConfiguration.set("Invite." + player.getName() + ".Clan", null);
                 yamlConfiguration.set("Invite." + player.getName() + ".Sender", null);
@@ -44,7 +45,7 @@ public class AcceptInvite {
                 }
             }
         } else {
-            player.sendMessage("You have not been invited to a clan!");
+            player.sendMessage(ChatColor.RED + "You have not been invited to a clan!");
         }
     }
 

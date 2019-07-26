@@ -1,6 +1,7 @@
 package me.harambe_hotsauce.clans;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -15,13 +16,14 @@ public class LeaveClan {
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
     ArrayList<String> playerList;
 
+
     public LeaveClan(Player player) {
         String playerName = player.getName();
         String clan = getClan(player);
         playerList = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + "." + "members");
         if (checkIfLeader(player)) {
             if (checkIfLastPlayer()) {
-                player.sendMessage("You are the last player in: " + clan + " If you wish to leave, please delete the clan!");
+                player.sendMessage(ChatColor.RED + "You are the last player in: " +  ChatColor.BLUE + clan + ChatColor.RED + " If you wish to leave, please delete the clan!");
             } else {
                 playerList.remove(playerName);
                 yamlConfiguration.set("players." + playerName + ".Player_Permissions", PlayerPermission.NULL.toString());
@@ -32,10 +34,10 @@ public class LeaveClan {
                 yamlConfiguration.set("clans." + clan + ".leader", playerList.toArray()[0]);
                 save();
                 Player newPlayer = Bukkit.getPlayer((String) playerList.toArray()[0]);
-                player.sendMessage("You have left the clan!");
+                player.sendMessage(ChatColor.RED + "You have left the clan!");
                 playerList.clear();
                 try {
-                    newPlayer.sendMessage(playerName + " Has left the clan! You are now the new leader!");
+                    newPlayer.sendMessage(ChatColor.BLUE + playerName + ChatColor.RED + " Has left the clan! You are now the new leader!");
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
@@ -48,7 +50,7 @@ public class LeaveClan {
             yamlConfiguration.set("players." + playerName + ".clan", null);
             save();
             playerList.clear();
-            player.sendMessage("You have left the clan!");
+            player.sendMessage(ChatColor.RED + "You have left the clan!");
         }
     }
 

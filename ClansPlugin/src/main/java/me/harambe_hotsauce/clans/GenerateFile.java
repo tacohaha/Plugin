@@ -4,6 +4,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GenerateFile {
 
@@ -23,12 +24,21 @@ public class GenerateFile {
             path = file.getPath();
             if (file.createNewFile()) {
                 System.out.println(fileName + " created!");
+                YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+                ArrayList<String> clanList = new ArrayList();
+                yamlConfiguration.set("list", clanList.toArray());
+                try {
+                    yamlConfiguration.save(file);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
                 System.out.println(fileName + " exists!");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static String getFilePath() {
