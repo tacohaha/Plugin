@@ -7,6 +7,6 @@ description: Create and join clans with you friends!
 commands:
   clans:
     description: general commmand for clan plugin
-    usage: /clan [create] [delete] [join], [name]
+    usage: /clan [create] [delete] [join] [leave], [name]
     permission: clan.basic
     permission-message: You don't have <permission>

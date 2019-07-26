@@ -20,16 +20,17 @@ public class ClanCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args[0].equalsIgnoreCase("create")) {
-            playerList.add(sender.getName());
-            new CreateClan(args[1], playerList, (Player) sender);
-            playerList.clear();
+            new CreateClan(args[1], (Player) sender);
             return true;
         } else if (args[0].equalsIgnoreCase("delete")) {
-            System.out.println(args[0]);
+//            System.out.println(args[0]);
             return true;
         } else if (args[0].equalsIgnoreCase("join")) {
             new JoinClan(args[1], (Player) sender);
-            System.out.println(args[0]);
+//            System.out.println(args[0]);
+            return true;
+        } else if (args[0].equalsIgnoreCase("leave")) {
+            new LeaveClan((Player) sender);
             return true;
         }
         return false;
