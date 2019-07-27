@@ -2,10 +2,12 @@ me\harambe_hotsauce\clans\ClanList.class
 me\harambe_hotsauce\clans\InvitePlayer.class
 me\harambe_hotsauce\clans\AddSlots.class
 me\harambe_hotsauce\clans\JoinClan.class
+me\harambe_hotsauce\clans\AddToClanList.class
 me\harambe_hotsauce\clans\PlayerPermission.class
 me\harambe_hotsauce\clans\CreateClan.class
-me\harambe_hotsauce\clans\UpdateClanList.class
+me\harambe_hotsauce\clans\RemoveFromClanList.class
 me\harambe_hotsauce\clans\ClanCommand.class
+me\harambe_hotsauce\clans\DeleteClan.class
 me\harambe_hotsauce\clans\LeaveClan.class
 me\harambe_hotsauce\clans\GenerateFile.class
 me\harambe_hotsauce\clans\ClanPlugin.class

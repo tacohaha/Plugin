@@ -30,7 +30,7 @@ public class CreateClan {
                 save();
                 player.sendMessage(ChatColor.GREEN + "You have created the clan: " + ChatColor.AQUA + name);
                 player.sendMessage(ChatColor.GREEN + "You are now the leader of: " + ChatColor.AQUA + name);
-                new UpdateClanList(name);
+                new AddToClanList(name);
 
             } else {
                 player.sendMessage(ChatColor.RED + "You are already in a clan!");

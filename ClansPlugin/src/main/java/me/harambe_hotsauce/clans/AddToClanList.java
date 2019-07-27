@@ -1,19 +1,19 @@
 package me.harambe_hotsauce.clans;
 
 import org.bukkit.configuration.file.YamlConfiguration;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import static me.harambe_hotsauce.clans.GenerateFile.getFilePath;
 
-public class UpdateClanList {
+public class AddToClanList {
 
-    public UpdateClanList(String clan) {
-        File file = new File(getFilePath());
-        YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-        ArrayList<String> clanList = new ArrayList();
+    File file = new File(getFilePath());
+    YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+    ArrayList<String> clanList = new ArrayList();
+
+    public AddToClanList(String clan) {
         try {
             clanList = (ArrayList<String>) yamlConfiguration.getStringList("list");
         } catch (IllegalArgumentException e) {
@@ -21,6 +21,11 @@ public class UpdateClanList {
         }
         clanList.add(clan);
         yamlConfiguration.set("list", clanList.toArray());
+        clanList.clear();
+        save();
+    }
+
+    public void save() {
         try {
             yamlConfiguration.save(file);
         } catch (IOException e) {

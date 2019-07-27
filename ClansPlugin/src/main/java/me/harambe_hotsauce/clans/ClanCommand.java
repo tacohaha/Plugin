@@ -23,7 +23,7 @@ public class ClanCommand implements CommandExecutor {
             new CreateClan(args[1], (Player) sender);
             return true;
         } else if (args[0].equalsIgnoreCase("delete")) {
-//            System.out.println(args[0]);
+            new DeleteClan((Player) sender);
             return true;
         } else if (args[0].equalsIgnoreCase("invite")) {
             new InvitePlayer(args[1], (Player) sender);

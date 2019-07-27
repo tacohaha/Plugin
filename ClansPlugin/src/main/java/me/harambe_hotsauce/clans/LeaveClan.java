@@ -33,15 +33,8 @@ public class LeaveClan {
                 yamlConfiguration.set("clans." + clan + ".leader", null);
                 yamlConfiguration.set("clans." + clan + ".leader", playerList.toArray()[0]);
                 save();
-                Player newPlayer = Bukkit.getPlayer((String) playerList.toArray()[0]);
-                player.sendMessage(ChatColor.RED + "You have left the clan!");
                 playerList.clear();
-                try {
-                    newPlayer.sendMessage(ChatColor.BLUE + playerName + ChatColor.RED + " Has left the clan! You are now the new leader!");
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                }
-
+                player.sendMessage(ChatColor.RED + "You have left the clan!");
             }
         } else {
             playerList.remove(playerName);
