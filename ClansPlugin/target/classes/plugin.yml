@@ -12,6 +12,6 @@ commands:
     permission-message: You don't have <permission>
   opclans:
     description: commands used by operators for management purposes
-    usage: /clans [info, addslots, list, join, leave, kick, changeleader] [clan]
+    usage: /clans [changeleader, disband, setprefix, removemember] [clan]
     permission: clan.op
     permission-message: You don't have <permission>

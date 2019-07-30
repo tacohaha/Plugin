@@ -19,6 +19,12 @@ public class OperatorClanCommands implements CommandExecutor {
         } else if (args[0].equalsIgnoreCase("removemember")) {
             new RemoveClanMember((Player) sender, args[1], args[2]);
             return true;
+        } else if (args[0].equalsIgnoreCase("changeleader")) {
+            new ChangeLeader((Player) sender, args[1], args[2]);
+            return true;
+        } else if (args[0].equalsIgnoreCase("setmemberlimit")) {
+            new SetMemberLimit((Player) sender, args[1], args[2]);
+            return true;
         } else {
             return false;
         }
