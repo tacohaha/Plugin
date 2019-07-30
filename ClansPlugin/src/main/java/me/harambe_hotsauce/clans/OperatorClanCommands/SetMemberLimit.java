@@ -1,5 +1,6 @@
 package me.harambe_hotsauce.clans.OperatorClanCommands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -18,6 +19,9 @@ public class SetMemberLimit {
             int l = Integer.parseInt(limit);
             yamlConfiguration.set("clans." + clan + ".limit", l);
             save();
+            player.sendMessage(ChatColor.AQUA + clan + ChatColor.RED + "'s new limit is " + ChatColor.AQUA + l);
+        } else {
+            player.sendMessage(ChatColor.RED + "Clan does not exist!");
         }
     }
 
