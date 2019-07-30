@@ -3,10 +3,8 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
 import java.io.File;
 import java.io.IOException;
-
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
 public class AddSlots {
@@ -27,7 +25,11 @@ public class AddSlots {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            } else {
+                player.sendMessage(ChatColor.RED + "You are not the leader in this clan!");
             }
+        } else {
+            player.sendMessage(ChatColor.RED + "You are not in a clan!");
         }
     }
 

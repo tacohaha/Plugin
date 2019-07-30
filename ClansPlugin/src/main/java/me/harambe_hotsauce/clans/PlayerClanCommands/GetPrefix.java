@@ -3,10 +3,8 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
 import java.io.File;
 import java.io.IOException;
-
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
 public class GetPrefix {
@@ -46,5 +44,4 @@ public class GetPrefix {
             e.printStackTrace();
         }
     }
-
 }

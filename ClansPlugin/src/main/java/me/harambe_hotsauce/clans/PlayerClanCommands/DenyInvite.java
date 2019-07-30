@@ -4,10 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
 import java.io.File;
 import java.io.IOException;
-
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
 public class DenyInvite {
@@ -50,7 +48,5 @@ public class DenyInvite {
         } else {
             player.sendMessage(ChatColor.RED + "You have not been invited to a clan!");
         }
-
     }
-
 }

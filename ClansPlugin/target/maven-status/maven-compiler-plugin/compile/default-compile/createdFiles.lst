@@ -17,5 +17,6 @@ me\harambe_hotsauce\clans\PlayerClanCommands\GetPrefix.class
 me\harambe_hotsauce\clans\PlayerClanCommands\PlayerChat.class
 me\harambe_hotsauce\clans\ClanPlugin.class
 me\harambe_hotsauce\clans\PlayerClanCommands\ClanInfo.class
+me\harambe_hotsauce\clans\OperatorClanCommands\DisbandClan.class
 me\harambe_hotsauce\clans\OperatorClanCommands\OperatorClanCommands.class
 me\harambe_hotsauce\clans\PlayerClanCommands\InvitePlayer.class

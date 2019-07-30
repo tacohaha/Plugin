@@ -2,10 +2,8 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
 import java.io.File;
 import java.io.IOException;
-
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
 public class SetPrefix {
@@ -50,5 +48,4 @@ public class SetPrefix {
             e.printStackTrace();
         }
     }
-
 }

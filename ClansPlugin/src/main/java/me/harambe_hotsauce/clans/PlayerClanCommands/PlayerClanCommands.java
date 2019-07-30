@@ -61,5 +61,4 @@ public class PlayerClanCommands implements CommandExecutor {
             return true;
         }
     }
-
 }

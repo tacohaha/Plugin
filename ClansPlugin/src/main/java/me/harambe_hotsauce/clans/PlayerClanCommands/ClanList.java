@@ -3,10 +3,8 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
 import java.io.File;
 import java.util.ArrayList;
-
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
 public class ClanList {
@@ -32,5 +30,4 @@ public class ClanList {
             player.sendMessage(ChatColor.DARK_RED + "No clans exist!");
         }
     }
-
 }
