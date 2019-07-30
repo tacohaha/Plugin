@@ -51,6 +51,9 @@ public class PlayerClanCommands implements CommandExecutor {
             } else if (args[0].equalsIgnoreCase("Kick")) {
                 new KickPlayer((Player) sender, args[1]);
                 return true;
+            } else if (args[0].equalsIgnoreCase("setprefix")) {
+                new SetPrefix((Player) sender, args[1]);
+                return true;
             }
             return false;
         } else {

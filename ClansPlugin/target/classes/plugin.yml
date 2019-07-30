@@ -7,11 +7,11 @@ description: Create and join clans with you friends!
 commands:
   clans:
     description: general commmand for clan plugin
-    usage: /clans [create, info, addslots, list, delete, invite, leave, kick] [clan]
+    usage: /clans [create, info, addslots, list, delete, invite, leave, kick, setprefix] [clan]
     permission: clan.basic
     permission-message: You don't have <permission>
   opclans:
     description: commands used by operators for management purposes
-    usage: /clans [create, info, addslots, list, delete, join, leave, kick] [clan]
+    usage: /clans [info, addslots, list, join, leave, kick, changeleader] [clan]
     permission: clan.op
     permission-message: You don't have <permission>

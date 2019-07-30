@@ -7,11 +7,14 @@ me\harambe_hotsauce\clans\PlayerClanCommands\LeaveClan.class
 me\harambe_hotsauce\clans\PlayerClanCommands\PlayerPermission.class
 me\harambe_hotsauce\clans\PlayerClanCommands\KickPlayer.class
 me\harambe_hotsauce\clans\PlayerClanCommands\CreateClan.class
+me\harambe_hotsauce\clans\PlayerClanCommands\SetPrefix.class
 me\harambe_hotsauce\clans\PlayerClanCommands\RemoveFromClanList.class
 me\harambe_hotsauce\clans\PlayerClanCommands\DeleteClan.class
 me\harambe_hotsauce\clans\PlayerClanCommands\JoinClan.class
 me\harambe_hotsauce\clans\PlayerClanCommands\PlayerClanCommands.class
 me\harambe_hotsauce\clans\PlayerClanCommands\DenyInvite.class
+me\harambe_hotsauce\clans\PlayerClanCommands\GetPrefix.class
+me\harambe_hotsauce\clans\PlayerClanCommands\PlayerChat.class
 me\harambe_hotsauce\clans\ClanPlugin.class
 me\harambe_hotsauce\clans\PlayerClanCommands\ClanInfo.class
 me\harambe_hotsauce\clans\OperatorClanCommands\OperatorClanCommands.class
