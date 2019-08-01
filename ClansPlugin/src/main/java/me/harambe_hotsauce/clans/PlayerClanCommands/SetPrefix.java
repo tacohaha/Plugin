@@ -1,5 +1,6 @@
 package me.harambe_hotsauce.clans.PlayerClanCommands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import java.io.File;
@@ -14,10 +15,18 @@ public class SetPrefix {
     public SetPrefix(Player player, String prefix) {
         if (checkIfClanExists(getClan(player))) {
             if (getPermission(player)) {
-                yamlConfiguration.set("clans." + getClan(player) + ".prefix", prefix);
-                save();
-                player.sendMessage(prefix);
+                if (prefix.length() <= 5) {
+                    yamlConfiguration.set("clans." + getClan(player) + ".prefix", prefix);
+                    save();
+                    player.sendMessage(prefix);
+                } else {
+                    player.sendMessage(ChatColor.RED + "Prefixes can be a max of 5 characters!");
+                }
+            } else {
+                player.sendMessage(ChatColor.RED + "You are not the leader of this clan!");
             }
+        } else {
+            player.sendMessage(ChatColor.RED + "You are not in a clan!");
         }
     }
 

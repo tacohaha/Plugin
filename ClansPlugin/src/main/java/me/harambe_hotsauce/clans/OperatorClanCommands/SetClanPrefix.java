@@ -16,8 +16,12 @@ public class SetClanPrefix {
 
     public SetClanPrefix(Player player, String clan, String prefix) {
         if (checkIfClanExists(clan)) {
-            yamlConfiguration.set("clans." + clan + ".prefix", prefix);
-            save();
+            if (prefix.length() <= 5) {
+                yamlConfiguration.set("clans." + clan + ".prefix", prefix);
+                save();
+            } else {
+                player.sendMessage(ChatColor.RED + "Prefixes cannot be more than 5 characters!");
+            }
         } else {
             player.sendMessage(ChatColor.RED + "Clan does not exist!");
         }

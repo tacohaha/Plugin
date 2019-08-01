@@ -17,7 +17,7 @@ public class GetPrefix {
         String prefix = getPrefix(event.getPlayer().getName());
         String newPrefix = ChatColor.AQUA + "[" + prefix + "]";
         String prevFormat = event.getFormat();
-        String newFormat = newPrefix + prevFormat;
+        String newFormat = newPrefix + ChatColor.RESET + prevFormat;
         try {
             if (prefix.equals("null")) {
                 event.setFormat(prevFormat);
