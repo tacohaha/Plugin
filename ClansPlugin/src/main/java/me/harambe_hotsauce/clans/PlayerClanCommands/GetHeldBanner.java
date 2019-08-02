@@ -8,7 +8,7 @@ class GetHeldBanner {
     boolean getHeldItem(Player player) {
         ItemStack item = player.getInventory().getItemInMainHand();
         try {
-            System.out.println(item.getData());
+            System.out.println(item.getType());
             return true;
         } catch (NullPointerException e) {
             e.printStackTrace();
