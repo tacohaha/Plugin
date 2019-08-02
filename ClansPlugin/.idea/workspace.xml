@@ -34,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/GetClanBanner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1396#1397#0" expanded="true" />
@@ -71,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/GetHeldBanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+            <state relative-caret-position="255">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,14 +83,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/SetClanBanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="312">
+              <caret line="27" column="68" lean-forward="true" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1395#1396#0" expanded="true" />
+                <element signature="e#1465#1466#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -211,8 +211,8 @@
         <option value="$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/PlayerClanCommands.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/SetPrefix.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/GetClanBanner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/SetClanBanner.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/GetHeldBanner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/SetClanBanner.java" />
       </list>
     </option>
   </component>
@@ -241,7 +241,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="839" />
     <option name="y" value="-19" />
     <option name="width" value="974" />
@@ -773,7 +773,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/GetClanBanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1396#1397#0" expanded="true" />
@@ -781,23 +781,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/SetClanBanner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/GetHeldBanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/GetHeldBanner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/harambe_hotsauce/clans/PlayerClanCommands/SetClanBanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        <state relative-caret-position="312">
+          <caret line="27" column="68" lean-forward="true" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
           </folding>
         </state>
       </provider>

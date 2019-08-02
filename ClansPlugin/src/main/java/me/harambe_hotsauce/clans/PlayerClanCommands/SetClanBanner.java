@@ -20,6 +20,7 @@ class SetClanBanner {
             if (getPermission(player.getName())) {
                 yamlConfiguration.set("clans." + clan + ".banner", new GetHeldBanner().getBanner(player));
                 save();
+                player.getInventory().getItemInMainHand().subtract();
             } else {
                 player.sendMessage(ChatColor.RED + "You are not the clan leader!");
             }
