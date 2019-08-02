@@ -18,7 +18,7 @@ import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFileP
 
 public class PlayerClanCommands implements CommandExecutor, TabCompleter {
 
-    private static final List<String> COMMANDS = Arrays.asList("create", "delete", "invite", "leave", "accept", "deny", "list", "addslots", "info", "kick", "setprefix");
+    private static final List<String> COMMANDS = Arrays.asList("create", "delete", "invite", "leave", "accept", "deny", "list", "addslots", "info", "kick", "setprefix", "setbanner", "getbanner");
     File file = new File(getFilePath());
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
@@ -70,7 +70,10 @@ public class PlayerClanCommands implements CommandExecutor, TabCompleter {
                 new SetPrefix((Player) sender, args[1]);
                 return true;
             } else if (args[0].equalsIgnoreCase("setbanner")) {
-                new GetHeldBanner().getHeldItem((Player) sender);
+                new SetClanBanner((Player) sender);
+                return true;
+            } else if (args[0].equalsIgnoreCase("getbanner")) {
+                new GetClanBanner((Player) sender);
                 return true;
             }
             return false;

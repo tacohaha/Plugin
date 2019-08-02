@@ -5,6 +5,7 @@ C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_h
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\DeleteClan.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\OperatorClanCommands\DisbandClan.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\CreateClan.java
+C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\GetClanBanner.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\JoinClan.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\KickPlayer.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\PlayerClanCommands.java
@@ -17,9 +18,11 @@ C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_h
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\AddSlots.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\LeaveClan.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\GetPrefix.java
+C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\SetClanBanner.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\SetPrefix.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\AcceptInvite.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\DenyInvite.java
+C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\GetHeldBanner.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\OperatorClanCommands\RemoveClanMember.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\OperatorClanCommands\SetMemberLimit.java
 C:\Users\Tacohaha\Documents\GitHub\Plugin\ClansPlugin\src\main\java\me\harambe_hotsauce\clans\PlayerClanCommands\InvitePlayer.java

@@ -11,7 +11,6 @@ me\harambe_hotsauce\clans\PlayerClanCommands\PlayerChat.class
 me\harambe_hotsauce\clans\PlayerClanCommands\ClanInfo.class
 me\harambe_hotsauce\clans\OperatorClanCommands\OperatorClanCommands.class
 me\harambe_hotsauce\clans\PlayerClanCommands\GetHeldBanner.class
-me\harambe_hotsauce\clans\PlayerClanCommands\GetClanList.class
 me\harambe_hotsauce\clans\OperatorClanCommands\SetClanPrefix.class
 me\harambe_hotsauce\clans\OperatorClanCommands\SetMemberLimit.class
 me\harambe_hotsauce\clans\PlayerClanCommands\ClanList.class
@@ -23,6 +22,8 @@ me\harambe_hotsauce\clans\PlayerClanCommands\RemoveFromClanList.class
 me\harambe_hotsauce\clans\PlayerClanCommands\JoinClan.class
 me\harambe_hotsauce\clans\PlayerClanCommands\DenyInvite.class
 me\harambe_hotsauce\clans\PlayerClanCommands\GetPrefix.class
+me\harambe_hotsauce\clans\PlayerClanCommands\GetClanBanner.class
+me\harambe_hotsauce\clans\PlayerClanCommands\SetClanBanner.class
 me\harambe_hotsauce\clans\ClanPlugin.class
 me\harambe_hotsauce\clans\OperatorClanCommands\DisbandClan.class
 me\harambe_hotsauce\clans\PlayerClanCommands\InvitePlayer.class

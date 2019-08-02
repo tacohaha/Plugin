@@ -9,22 +9,19 @@ import java.io.IOException;
 
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-class SetPrefix {
+class SetClanBanner {
 
     File file = new File(getFilePath());
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-    SetPrefix(Player player, String prefix) {
-        if (checkIfClanExists(getClan(player))) {
-            if (getPermission(player)) {
-                if (prefix.length() <= 5) {
-                    yamlConfiguration.set("clans." + getClan(player) + ".prefix", prefix);
-                    save();
-                } else {
-                    player.sendMessage(ChatColor.RED + "Prefixes can be a max of 5 characters!");
-                }
+    SetClanBanner(Player player) {
+        String clan = getClan(player);
+        if (checkIfClanExists(clan)) {
+            if (getPermission(player.getName())) {
+                yamlConfiguration.set("clans." + clan + ".banner", new GetHeldBanner().getBanner(player));
+                save();
             } else {
-                player.sendMessage(ChatColor.RED + "You are not the leader of this clan!");
+                player.sendMessage(ChatColor.RED + "You are not the clan leader!");
             }
         } else {
             player.sendMessage(ChatColor.RED + "You are not in a clan!");
@@ -35,12 +32,12 @@ class SetPrefix {
         return (String) yamlConfiguration.get("players." + player.getName() + ".clan");
     }
 
-    private boolean checkIfClanExists(String clan) {
-        return yamlConfiguration.get("clans." + clan) != null;
+    private boolean getPermission(String name) {
+        return yamlConfiguration.get("players." + name + ".Player_Permissions").equals("LEADER");
     }
 
-    private boolean getPermission(Player player) {
-        return yamlConfiguration.get("players." + player.getName() + ".Player_Permissions").equals("LEADER");
+    private boolean checkIfClanExists(String clan) {
+        return yamlConfiguration.get("clans." + clan) != null;
     }
 
     private void save() {
