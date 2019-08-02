@@ -11,14 +11,15 @@ import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFileP
 
 public class SetClanPrefix {
 
-    File file = new File(getFilePath());
-    YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+    private File file = new File(getFilePath());
+    private YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-    public SetClanPrefix(Player player, String clan, String prefix) {
+    SetClanPrefix(Player player, String clan, String prefix) {
         if (checkIfClanExists(clan)) {
             if (prefix.length() <= 5) {
                 yamlConfiguration.set("clans." + clan + ".prefix", prefix);
                 save();
+                player.sendMessage(ChatColor.AQUA + clan + ChatColor.GREEN + "'s new prefix is " + ChatColor.AQUA + prefix);
             } else {
                 player.sendMessage(ChatColor.RED + "Prefixes cannot be more than 5 characters!");
             }
@@ -28,11 +29,7 @@ public class SetClanPrefix {
     }
 
     public boolean checkIfClanExists(String clan) {
-        if (yamlConfiguration.get("clans." + clan) == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return yamlConfiguration.get("clans." + clan) != null;
     }
 
     public void save() {

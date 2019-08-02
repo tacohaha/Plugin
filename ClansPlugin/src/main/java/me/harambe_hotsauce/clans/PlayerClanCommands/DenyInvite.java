@@ -4,16 +4,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
+
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-public class DenyInvite {
+class DenyInvite {
 
     File file = new File(getFilePath());
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-    public DenyInvite(Player player) {
+    DenyInvite(Player player) {
         if (yamlConfiguration.get("Invite." + player.getName()) != null) {
             if (((System.currentTimeMillis() - (long) yamlConfiguration.get("Invite." + player.getName() + ".Timestamp") / 1000) > 60)) {
                 String clan = (String) yamlConfiguration.get("Invite." + player.getName() + ".Clan");

@@ -20,5 +20,4 @@ public final class ClanPlugin extends JavaPlugin {
     public void onDisable() {
 
     }
-
 }

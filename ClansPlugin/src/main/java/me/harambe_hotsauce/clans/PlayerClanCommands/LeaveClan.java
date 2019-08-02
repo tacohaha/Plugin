@@ -3,25 +3,26 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-public class LeaveClan {
+class LeaveClan {
 
     File file = new File(getFilePath());
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-    ArrayList<String> playerList;
+    private ArrayList<String> playerList;
 
-
-    public LeaveClan(Player player) {
+    LeaveClan(Player player) {
         String playerName = player.getName();
         String clan = getClan(player);
         playerList = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + "." + "members");
         if (checkIfLeader(player)) {
             if (checkIfLastPlayer()) {
-                player.sendMessage(ChatColor.RED + "You are the last player in: " +  ChatColor.BLUE + clan + ChatColor.RED + " If you wish to leave, please delete the clan!");
+                player.sendMessage(ChatColor.RED + "You are the last player in: " + ChatColor.BLUE + clan + ChatColor.RED + " If you wish to leave, please delete the clan!");
             } else {
                 playerList.remove(playerName);
                 yamlConfiguration.set("players." + playerName + ".Player_Permissions", PlayerPermission.NULL.toString());
@@ -45,23 +46,19 @@ public class LeaveClan {
         }
     }
 
-    public String getClan(Player player) {
+    private String getClan(Player player) {
         return (String) yamlConfiguration.get("players." + player.getName() + ".clan");
     }
 
-    public boolean checkIfLeader(Player player) {
+    private boolean checkIfLeader(Player player) {
         return yamlConfiguration.get("players." + player.getName() + ".Player_Permissions") != PlayerPermission.LEADER.toString();
     }
 
-    public boolean checkIfLastPlayer() {
-        if (playerList.toArray().length == 1) {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean checkIfLastPlayer() {
+        return playerList.toArray().length == 1;
     }
 
-    public void save() {
+    private void save() {
         try {
             yamlConfiguration.save(file);
         } catch (IOException e) {

@@ -1,17 +1,16 @@
 package me.harambe_hotsauce.clans.PlayerClanCommands;
 
 import org.bukkit.configuration.file.YamlConfiguration;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class GenerateFile {
 
-    static String path;
-    static String directory;
+    private static String path;
 
     public GenerateFile(String directory, String fileName) {
-        this.directory = directory;
         try {
             File file1 = new File("plugins/" + directory);
             if (file1.exists()) {

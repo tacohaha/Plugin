@@ -1,6 +1,5 @@
 package me.harambe_hotsauce.clans.PlayerClanCommands;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,9 +26,10 @@ public class PlayerClanCommands implements CommandExecutor, TabCompleter {
         plugin.getServer().broadcastMessage("info");
     }
 
+    @SuppressWarnings("typo")
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if ((Player) sender instanceof Player) {
+        if (sender instanceof Player) {
             if (args[0].equalsIgnoreCase("Create")) {
                 new CreateClan(args[1], (Player) sender);
                 return true;
@@ -69,6 +69,9 @@ public class PlayerClanCommands implements CommandExecutor, TabCompleter {
             } else if (args[0].equalsIgnoreCase("setprefix")) {
                 new SetPrefix((Player) sender, args[1]);
                 return true;
+            } else if (args[0].equalsIgnoreCase("setbanner")) {
+                new GetHeldBanner().getHeldItem((Player) sender);
+                return true;
             }
             return false;
         } else {
@@ -79,9 +82,9 @@ public class PlayerClanCommands implements CommandExecutor, TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-        if (args.length ==  1) {
-            return (args.length == 1) ? StringUtil.copyPartialMatches(args[0], COMMANDS, new ArrayList<>()) : null;
-        }else {
+        if (args.length == 1) {
+            return StringUtil.copyPartialMatches(args[0], COMMANDS, new ArrayList<>());
+        } else {
             return null;
         }
     }

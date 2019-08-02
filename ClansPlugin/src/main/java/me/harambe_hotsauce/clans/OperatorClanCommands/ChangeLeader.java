@@ -12,19 +12,20 @@ import java.util.ArrayList;
 
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-public class ChangeLeader {
+class ChangeLeader {
 
-    File file = new File(getFilePath());
-    YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+    private File file = new File(getFilePath());
+    private YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-    public ChangeLeader(Player player, String clan, String playerName) {
+    ChangeLeader(Player player, String clan, String playerName) {
         if (checkIfClanExists(clan)) {
             if (isPlayerInClan(clan, playerName)) {
                 if (isPlayerLeader(clan, playerName)) {
                     player.sendMessage(ChatColor.AQUA + playerName + ChatColor.RED + " is already the leader!");
                 } else {
-                    updateOldLeader(clan, playerName);
+                    updateOldLeader(clan);
                     updateNewLeader(clan, playerName);
+                    player.sendMessage(ChatColor.AQUA + playerName + ChatColor.RED + " is the new leader of " + ChatColor.AQUA + clan);
                 }
             } else {
                 player.sendMessage(ChatColor.AQUA + playerName + ChatColor.RED + " is not in the clan " + ChatColor.AQUA + clan);
@@ -34,12 +35,13 @@ public class ChangeLeader {
         }
     }
 
-    public void updateOldLeader(String clan, String playerName) {
-        String oldLeader =  (String) yamlConfiguration.get("clans." + clan + ".leader");
+    private void updateOldLeader(String clan) {
+        String oldLeader = (String) yamlConfiguration.get("clans." + clan + ".leader");
         yamlConfiguration.set("clans." + clan + ".leader", null);
         yamlConfiguration.set("players." + oldLeader + ".Player_Permissions", PlayerPermission.MEMBER.toString());
         save();
         try {
+            assert oldLeader != null;
             Player player = Bukkit.getPlayer(oldLeader);
             player.sendMessage(ChatColor.RED + "You have been replaced as leader!");
         } catch (NullPointerException e) {
@@ -47,9 +49,9 @@ public class ChangeLeader {
         }
     }
 
-    public void updateNewLeader(String clan, String playerName) {
+    private void updateNewLeader(String clan, String playerName) {
         yamlConfiguration.set("clans." + clan + ".leader", playerName);
-        yamlConfiguration.set("players." + playerName  + ".Player_Permissions", PlayerPermission.LEADER.toString());
+        yamlConfiguration.set("players." + playerName + ".Player_Permissions", PlayerPermission.LEADER.toString());
         save();
         try {
             Player player = Bukkit.getPlayer(playerName);
@@ -59,32 +61,20 @@ public class ChangeLeader {
         }
     }
 
-    public boolean checkIfClanExists(String clan) {
-        if (yamlConfiguration.get("clans." + clan) == null) {
-            return false;
-        } else {
-            return true;
-        }
+    private boolean checkIfClanExists(String clan) {
+        return yamlConfiguration.get("clans." + clan) != null;
     }
 
-    public boolean isPlayerLeader(String clan, String playerName) {
-        if (yamlConfiguration.get("clans." + clan + ".leader").equals(playerName)) {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean isPlayerLeader(String clan, String playerName) {
+        return yamlConfiguration.get("clans." + clan + ".leader").equals(playerName);
     }
 
-    public boolean isPlayerInClan(String clan, String playerName) {
-        ArrayList<String> memberList = (ArrayList<String>) yamlConfiguration.get("clans." + clan + ".members");
-        if (memberList.contains(playerName)) {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean isPlayerInClan(String clan, String playerName) {
+        ArrayList<String> memberList = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + ".members");
+        return memberList.contains(playerName);
     }
 
-    public void save() {
+    private void save() {
         try {
             yamlConfiguration.save(file);
         } catch (IOException e) {

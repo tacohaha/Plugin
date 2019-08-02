@@ -10,6 +10,7 @@ me\harambe_hotsauce\clans\PlayerClanCommands\PlayerClanCommands.class
 me\harambe_hotsauce\clans\PlayerClanCommands\PlayerChat.class
 me\harambe_hotsauce\clans\PlayerClanCommands\ClanInfo.class
 me\harambe_hotsauce\clans\OperatorClanCommands\OperatorClanCommands.class
+me\harambe_hotsauce\clans\PlayerClanCommands\GetHeldBanner.class
 me\harambe_hotsauce\clans\PlayerClanCommands\GetClanList.class
 me\harambe_hotsauce\clans\OperatorClanCommands\SetClanPrefix.class
 me\harambe_hotsauce\clans\OperatorClanCommands\SetMemberLimit.class

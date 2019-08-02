@@ -3,20 +3,17 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
+
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-public class AcceptInvite {
+class AcceptInvite {
 
-    File file = new File(getFilePath());
-    YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-
-    public AcceptInvite(Player player) {
-        playerInvite(player);
-    }
-
-    public void playerInvite(Player player) {
+    AcceptInvite(Player player) {
+        File file = new File(getFilePath());
+        YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
         if (yamlConfiguration.get("Invite." + player.getName()) != null) {
             if (((System.currentTimeMillis() - (long) yamlConfiguration.get("Invite." + player.getName() + ".Timestamp") / 1000) > 60)) {
                 String clan = (String) yamlConfiguration.get("Invite." + player.getName() + ".Clan");

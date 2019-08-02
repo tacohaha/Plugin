@@ -6,17 +6,19 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
 public class DisbandClan {
 
-    File file = new File(getFilePath());
-    YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+    private File file = new File(getFilePath());
+    private YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-    public DisbandClan(Player player, String clan) {
+    DisbandClan(Player player, String clan) {
         if (checkIfClanExists(clan)) {
             ArrayList<String> memberList = getMemberList(clan);
             for (int i = 0; i < memberList.toArray().length; i++) {
@@ -26,6 +28,7 @@ public class DisbandClan {
                 try {
                     Player p = Bukkit.getPlayer((String) memberList.toArray()[i]);
                     p.sendMessage(ChatColor.DARK_RED + "Your clan has been disbanded by " + ChatColor.AQUA + player.getName());
+                    player.sendMessage(ChatColor.AQUA + clan + ChatColor.RED + " has been disbanded!");
                 } catch (IllegalArgumentException e) {
                     System.out.println("Tried to message a player that isn't logged in");
                 }
@@ -47,15 +50,11 @@ public class DisbandClan {
         }
     }
 
-    public ArrayList<String> getMemberList(String clan) {
+    private ArrayList<String> getMemberList(String clan) {
         return (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + ".members");
     }
 
     public boolean checkIfClanExists(String clan) {
-        if (yamlConfiguration.get("clans." + clan) == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return yamlConfiguration.get("clans." + clan) != null;
     }
 }

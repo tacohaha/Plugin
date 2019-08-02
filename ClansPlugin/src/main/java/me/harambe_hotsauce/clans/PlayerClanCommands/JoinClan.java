@@ -3,22 +3,23 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-public class JoinClan {
+class JoinClan {
 
     File file = new File(getFilePath());
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-    ArrayList<String> playerList;
 
-    public JoinClan(String clan, Player player) {
+    JoinClan(String clan, Player player) {
         if (checkIfClanExists(clan)) {
             if (!isPlayerInClan(player, clan)) {
                 String playerName = player.getName();
-                playerList = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + "." + "members");
+                ArrayList<String> playerList = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + "." + "members");
                 playerList.add(playerName);
                 yamlConfiguration.set("clans." + clan + ".members", playerList.toArray());
                 playerList.clear();
@@ -37,21 +38,13 @@ public class JoinClan {
     }
 
     public boolean checkIfClanExists(String clan) {
-        if (yamlConfiguration.get("clans." + clan) == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return yamlConfiguration.get("clans." + clan) != null;
     }
 
-    public boolean isPlayerInClan(Player player, String clan) {
+    private boolean isPlayerInClan(Player player, String clan) {
         if (yamlConfiguration.get("players." + player.getName()) == null) {
             return false;
-        } else if (yamlConfiguration.get("players." + player.getName() + ".clan") == clan | yamlConfiguration.get("players." + player.getName() + ".clan") != null) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return yamlConfiguration.get("players." + player.getName() + ".clan") == clan | yamlConfiguration.get("players." + player.getName() + ".clan") != null;
     }
 
     public void save() {

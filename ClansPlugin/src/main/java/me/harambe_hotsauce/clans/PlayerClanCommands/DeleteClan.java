@@ -3,17 +3,19 @@ package me.harambe_hotsauce.clans.PlayerClanCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-public class DeleteClan {
+class DeleteClan {
 
     File file = new File(getFilePath());
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-    public DeleteClan(Player player) {
+    DeleteClan(Player player) {
         if (isInClan(player)) {
             if (isLeader(player)) {
                 if (isLastPlayer(getClan(player))) {
@@ -35,44 +37,32 @@ public class DeleteClan {
         }
     }
 
-    public String getClan(Player player) {
+    private String getClan(Player player) {
         return (String) yamlConfiguration.get("players." + player.getName() + ".clan");
     }
 
-    public String getRank(Player player) {
+    private String getRank(Player player) {
         return (String) yamlConfiguration.get("players." + player.getName() + ".Player_Permissions");
     }
 
-    public int getNumberOfMembers(String clan) {
+    private int getNumberOfMembers(String clan) {
         ArrayList<String> members = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + ".members");
         return members.toArray().length;
     }
 
-    public boolean isInClan(Player player) {
-        if (getClan(player) != null | getClan(player) != "null") {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean isInClan(Player player) {
+        return getClan(player) != null | getClan(player) != "null";
     }
 
-    public boolean isLeader(Player player) {
-        if (getRank(player).equals("LEADER")) {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean isLeader(Player player) {
+        return getRank(player).equals("LEADER");
     }
 
-    public boolean isLastPlayer(String clan) {
-        if (getNumberOfMembers(clan) == 1) {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean isLastPlayer(String clan) {
+        return getNumberOfMembers(clan) == 1;
     }
 
-    public void save() {
+    private void save() {
         try {
             yamlConfiguration.save(file);
         } catch (IOException e) {

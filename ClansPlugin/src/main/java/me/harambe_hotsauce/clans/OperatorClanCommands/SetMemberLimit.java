@@ -11,10 +11,10 @@ import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFileP
 
 public class SetMemberLimit {
 
-    File file = new File(getFilePath());
-    YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+    private File file = new File(getFilePath());
+    private YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-    public SetMemberLimit(Player player, String clan, String limit) {
+    SetMemberLimit(Player player, String clan, String limit) {
         if (checkIfClanExists(clan)) {
             int l = Integer.parseInt(limit);
             yamlConfiguration.set("clans." + clan + ".limit", l);
@@ -26,11 +26,7 @@ public class SetMemberLimit {
     }
 
     public boolean checkIfClanExists(String clan) {
-        if (yamlConfiguration.get("clans." + clan) == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return yamlConfiguration.get("clans." + clan) != null;
     }
 
     public void save() {
@@ -40,5 +36,4 @@ public class SetMemberLimit {
             e.printStackTrace();
         }
     }
-
 }

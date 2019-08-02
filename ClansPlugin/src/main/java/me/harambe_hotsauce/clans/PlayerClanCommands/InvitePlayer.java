@@ -4,30 +4,31 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import static me.harambe_hotsauce.clans.PlayerClanCommands.GenerateFile.getFilePath;
 
-public class InvitePlayer {
+class InvitePlayer {
 
-    Collection onlinePlayers;
     File file = new File(getFilePath());
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-    ArrayList<String> playerList;
 
 
-    public InvitePlayer(String invPlayer, Player player) {
+    InvitePlayer(String invPlayer, Player player) {
         if (canPlayerInvitePlayers(player)) {
             if (player == Bukkit.getPlayer(invPlayer)) {
                 player.sendMessage("Nice try, but you can't invite yourself!");
             } else {
-                onlinePlayers = Bukkit.getOnlinePlayers();
+                Collection onlinePlayers = Bukkit.getOnlinePlayers();
                 if (onlinePlayers.contains(Bukkit.getPlayer(invPlayer))) {
                     Player invitedPlayer = Bukkit.getPlayer(invPlayer);
+                    assert invitedPlayer != null;
                     invitedPlayer.sendMessage(ChatColor.GREEN + "You have been invited to join the clan " + ChatColor.BLUE + getClan(player));
-                    invitedPlayer.sendMessage(ChatColor.GREEN + "Type" + ChatColor.AQUA + " /clans accept " + ChatColor.GREEN + "to accept this invite or" + ChatColor.AQUA + " /clans deny "  + ChatColor.GREEN + "to deny the invite.");
+                    invitedPlayer.sendMessage(ChatColor.GREEN + "Type" + ChatColor.AQUA + " /clans accept " + ChatColor.GREEN + "to accept this invite or" + ChatColor.AQUA + " /clans deny " + ChatColor.GREEN + "to deny the invite.");
                     invitedPlayer.sendMessage("This invite will time out in 60 seconds.");
                     createInvite(player, invitedPlayer, getClan(player), System.currentTimeMillis());
                 } else {
@@ -39,11 +40,11 @@ public class InvitePlayer {
         }
     }
 
-    public String getClan(Player player) {
+    private String getClan(Player player) {
         return (String) yamlConfiguration.get("players." + player.getName() + ".clan");
     }
 
-    public void createInvite(Player sender, Player invitedPlayer, String clan, long time) {
+    private void createInvite(Player sender, Player invitedPlayer, String clan, long time) {
         yamlConfiguration.set("Invite." + invitedPlayer.getName() + ".Sender", sender.getName());
         yamlConfiguration.set("Invite." + invitedPlayer.getName() + ".Clan", clan);
         yamlConfiguration.set("Invite." + invitedPlayer.getName() + ".Timestamp", time);
@@ -54,16 +55,12 @@ public class InvitePlayer {
         }
     }
 
-    public boolean canPlayerInvitePlayers(Player player) {
+    private boolean canPlayerInvitePlayers(Player player) {
         String name = player.getName();
         try {
             if (getPermission(name)) {
                 String clan = getClan(player);
-                if (getSpaceAvailable(clan)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return getSpaceAvailable(clan);
             } else {
                 return false;
             }
@@ -73,21 +70,13 @@ public class InvitePlayer {
         }
     }
 
-    public boolean getPermission(String name) {
-        if (yamlConfiguration.get("players." + name + ".Player_Permissions").equals("LEADER")) {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean getPermission(String name) {
+        return yamlConfiguration.get("players." + name + ".Player_Permissions").equals("LEADER");
     }
 
 
-    public boolean getSpaceAvailable(String clan) {
-        playerList = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + "." + "members");
-        if (playerList.size() == (int) yamlConfiguration.get("clans." + clan + ".limit")) {
-            return false;
-        } else {
-            return true;
-        }
+    private boolean getSpaceAvailable(String clan) {
+        ArrayList<String> playerList = (ArrayList<String>) yamlConfiguration.getStringList("clans." + clan + "." + "members");
+        return playerList.size() != (int) yamlConfiguration.get("clans." + clan + ".limit");
     }
 }
